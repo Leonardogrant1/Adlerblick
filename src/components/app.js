@@ -1,6 +1,8 @@
 import {LitElement, css, html} from "lit-element";
 import "@material/mwc-button";
-import "@material/mwc-icon"
+import "@material/mwc-icon";
+import "jquery";
+
 
 import {Router} from '@vaadin/router';
 
@@ -9,6 +11,8 @@ import "./home";
 import "./firmenprofil";
 import "./referenzen";
 import "./dienstleistungen";
+import "./Stellenangebote";
+import "./Anfrage"
 
 import "./dienstleistungen-einzeln/Ladendetektive";
 import "./dienstleistungen-einzeln/Doorman";
@@ -17,6 +21,7 @@ import "./dienstleistungen-einzeln/Empfangsdienst";
 import "./dienstleistungen-einzeln/Zutrittskontrolle";
 import "./dienstleistungen-einzeln/Veranstaltungsschutz";
 import "./dienstleistungen-einzeln/Baustellenschutz";
+
 
 
 
@@ -52,6 +57,7 @@ class App extends LitElement {
             padding: 5px;
             box-sizing: border-box;
             background-color: white;
+            z-index: 20;
 
             position: sticky;
 
@@ -127,7 +133,7 @@ class App extends LitElement {
             
         }
 
-        .dropdown-item:hover > a > p {
+        .dropdown-item:hover > p {
             
             color: white !important;
             
@@ -151,7 +157,7 @@ class App extends LitElement {
             footer {
                 width: 100%;
                 height: auto;
-                background-color: rgb(255,	215, 0, 0.8);
+                background-color: rgb(255, 215, 0, 0.8);
                 padding: 30px;
                 box-sizing: border-box;
                 border-top: 1px solid black;
@@ -261,7 +267,9 @@ class App extends LitElement {
             {path: "/zutrittskontrolle", component: 'zutrittskontrolle-component'},
             {path: "/veranstaltungsschutz", component: 'veranstaltungsschutz-component'},
             {path: "/baustellenschutz", component: 'baustellenschutz-component'},
-            {path: '/referenzen', component: 'referenzen-component'}           
+            {path: '/referenzen', component: 'referenzen-component'},
+            {path: '/stellenangebote', component: 'stellenangebote-component'},
+            {path: '/anfragen', component: 'anfragen-component'}
          ]);
 
 
@@ -289,13 +297,13 @@ class App extends LitElement {
                 
                     <ul class="dropdown-content">
 
-                        <li class="dropdown-item"><a href="/ladendetektive"><p>Ladendetektiv</p></a></li>
-                        <li class="dropdown-item"><a href="/doorman"><p>Doorman</p></a></li>
-                        <li class="dropdown-item"><a href="/objektschutz"><p>Objektschutz</p></a></li>
-                        <li class="dropdown-item"><a href="/empfangsdienst"><p>Empfangsdienst</p></a></li>
-                        <li class="dropdown-item"><a href="/zutrittskontrolle"><p>Zutrittskontrolle</p></a></li>
-                        <li class="dropdown-item"><a href="/veranstaltungsschutz"><p>Veranstaltungsschutz</p></a></li>
-                        <li class="dropdown-item"><a href="/baustellenschutz"><p>Baustellenschutz</p></a></li>
+                        <a href="/ladendetektive"><li class="dropdown-item"><p>Ladendetektiv</p></li></a>
+                        <a href="/doorman"><li class="dropdown-item"><p>Doorman</p></li></a>
+                        <a href="/objektschutz"><li class="dropdown-item"><p>Objektschutz</p></li></a>
+                        <a href="/empfangsdienst"><li class="dropdown-item"><p>Empfangsdienst</p></li></a>
+                        <a href="/zutrittskontrolle"><li class="dropdown-item"><p>Zutrittskontrolle</p></li></a>
+                        <a href="/veranstaltungsschutz"><li class="dropdown-item"><p>Veranstaltungsschutz</p></li></a>
+                        <a href="/baustellenschutz"><li class="dropdown-item"><p>Baustellenschutz</p></li></a>
 
                     </ul>
 
