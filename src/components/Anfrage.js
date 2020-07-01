@@ -51,6 +51,8 @@ class Anfragen extends LitElement {
             height: auto;
             width: 40%;
             align-self: center;
+            min-width: 345px;
+
         }
 
 
@@ -61,7 +63,7 @@ class Anfragen extends LitElement {
         }
 
         h1 {
-            font-size: 68px;
+            font-size: 5vw;
             font-family: "Comfortaa", sans-serif;
             text-align: center;
         }
@@ -82,12 +84,11 @@ class Anfragen extends LitElement {
         form > div > input {
 
           flex-grow: 1;
-          margin: 0px 5px;
+          margin: 20px 5px;
         } 
 
         input ,textarea {
             margin: 30px 0px;
-            
             padding: 10px;
             
             font-family: 'Roboto', sans-serif;
@@ -122,6 +123,28 @@ class Anfragen extends LitElement {
 
       }
 
+
+@media only screen and (max-width: 750px){
+
+    h1 {
+        font-size: 45px;
+    }
+   
+    form > div {
+        
+        flex-wrap: wrap;
+        
+        
+    }
+    
+
+    
+
+    
+    
+
+}
+
           
       
         
@@ -145,13 +168,13 @@ class Anfragen extends LitElement {
         
         <div class="contact-us">
             <h1>Kontaktieren Sie uns</h1>
-            <p>Schreiben Sie uns an wenn Sie Fragen haben. Wir melden uns so schnell es geht bei Ihnen</p>
+            <p>Schreiben Sie uns an wenn Sie Fragen haben. Wir melden uns so schnell es geht bei Ihnen.</p>
         
         
             <div class="form">
 
             
-<form id="form" action="send_email.php" method="POST">
+<form id="form" action="contact_us.php" method="POST">
 
 
 <div>
@@ -160,7 +183,7 @@ class Anfragen extends LitElement {
   placeholder="Name"
   id="Name"
   name="Name"
-  
+  required
   >
 
 <input 
@@ -168,6 +191,7 @@ class Anfragen extends LitElement {
   placeholder="Vorname"
   id="Vorname"
   name="Vorname"
+  required
   >
 
 </div>
@@ -178,20 +202,22 @@ class Anfragen extends LitElement {
 type="email"
 placeholder="Email"
 id="Email"
-name="Email">
+name="Email"
+required>
 
 <input
 type="Betreff"
 placeholder="Betreff"
 id="Betreff"
-name="Betreff">
+name="Betreff"
+required>
 
 <textarea
 
 placeholder="Anfrage"
 id="Anfrage"
 name="Anfrage"
-
+required
 ></textarea>          
 
 

@@ -24,6 +24,7 @@ class Objektschutz extends LitElement {
             display: flex;
             
             
+            
             position: static;
             overflow: hidden;
             
@@ -44,8 +45,9 @@ class Objektschutz extends LitElement {
 
 
         #below-logo-text {
-            width: 100%;
+            width: inherit;
             padding: 60px 40px;
+            box-sizing: border-box;
             background-color: black;
             color: white;
             opacity: 0.8;
@@ -64,12 +66,23 @@ class Objektschutz extends LitElement {
         }
 
 
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            width: 100%;
+            
+        }
 
 
         .description {
             display: flex;
             height: auto;
             box-sizing: border-box;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
 
         }
 
@@ -106,6 +119,80 @@ class Objektschutz extends LitElement {
         }
 
 
+        #buttonWrapper {
+            align-self: center;
+        }
+
+
+        .images {
+
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: 80% 50%;
+            
+           
+
+
+          }
+
+        mwc-button {
+            --mdc-theme-primary: black;
+            --mdc-theme-on-primary: rgba(242, 195, 29, 0.8);
+            transition: transform .2s;
+            
+
+             
+            
+            margin-bottom: 60px;
+            
+          }
+
+          mwc-button:hover {
+           
+            --mdc-theme-on-primary: white;
+            transform: scale(1.1);
+
+          }
+
+
+
+        @media only screen and (max-width: 1113px){
+            #below-logo-text > h1 { 
+
+                font-size: 3vw;
+            }
+
+            #background {
+                object-position: 20% 60%;
+                
+            }
+        }
+
+
+
+
+        @media only screen and (max-width: 1113px) { 
+
+            .description > div {
+
+                width: 100%;
+
+            }
+
+            .floatChange {
+                
+                flex-direction: column-reverse;
+                
+                
+            }
+
+
+
+
+        }
+
+
         
         
         `;
@@ -131,91 +218,36 @@ class Objektschutz extends LitElement {
         </div>
 
 
-        <div>
+
+        <main>
 
 
 
 
 
 
-        <div class="description">
+<div class="description">
 
-        <div>
-        
-        <p>Die Detektei Adlerblick entstand im Jahr 2007 unter Leitung des 
-        Geschäftsführers Cezar Augusto Granetto, der seit 1994 erfolgreich 
-        als Kaufhausdetektiv eines der größten Kaufhäuser Deutschlands betreut.
-        Zusammen mit anderen erfahrenen Detektiven und Doormen, vertreten wir nun die 
-        Interessen unserer Kunden.
-        </p>
-        
-        </div>
+<div style="display: inline-flex; flex-direction: column;">
+
+<p>Die Sicherheit von Objekten, die durch Bewachung gewährleistet wird, sorgt dafür, dass das Objekt durch Störer, Kriminelle oder Feinde keine Schäden zugefügt wird.
+<br />
+<br />
+Die Bewachung wird durch uniformierte Wachleute durchgeführt. Sei es für privates, betriebliches oder öffentliches Eigenturm, die Präsenz von Sicherheitspersonal bietet schon im Vorfeld den Schutz von Eigentumsdelikten und Straftaten.
+
+</p>
 
 
-        <div style="background-color: yellow;">
+<div id="buttonWrapper">
+<a href="/anfragen" style="text-decoration: none;"><mwc-button raised label="Kontaktieren Sie uns"></mwc-button></a></div>
 
-        
-        
-        </div>
+</div>
 
+<div>
 
-        </div>
+<img class="images" src="../../public/images/image12.png" style="object-position: 40% 0%;" />
 
-
-
-
-        <div class="description">
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-
-        <div>
-        
-        <p>Darüber hinaus verfügen unsere Mitarbeiter, nach langjähriger Erfahrung, über verschiedene Ermittlungsmethoden und Observationstechniken. 
-            Diese Eigenschaften sprechen für den Erfolg unserer Firma.
-        </p>
-        
-        </div>
-
-
-
-        </div>
-
-
-        <div class="description">
-
-
-        <div id="end">
-        
-        <p>
-            Unsere Sicherheitskonzepte werden individuell mit Berücksichtigung Ihres persönlichen Umfeldes konzipiert. <br /> <br />
-            Sie teilen uns Ihre Wünsche und Bedürfnisse mit, wir besprechen die Schwerpunkte gemeinsam, und wir bieten Ihnen mehrere Lösungen an. <br /> <br />
-            Bei Bedarf setzen wir auch Überwachungssysteme ein, die mit menschlichen Kenntnissen kombiniert für Sie zum Erfolg führen.<br /> <br />
-            Wir freuen uns darauf, mit Ihnen ins Gespräch zu kommen!
-        </p>
-
-        <mwc-button raised label="Kontaktieren Sie uns"></mwc-button>
-
-        
-        
-        </div>
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-
-        </div>
+</div> 
 
 
 
@@ -225,7 +257,30 @@ class Objektschutz extends LitElement {
 
 
 
-        </div>
+
+
+
+
+
+</div>
+
+
+
+        </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
         
         </section>

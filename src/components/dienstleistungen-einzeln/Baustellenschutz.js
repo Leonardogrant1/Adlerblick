@@ -44,7 +44,7 @@ class Baustellenschutz extends LitElement {
 
 
         #below-logo-text {
-            width: 100%;
+            width: inherit;
             padding: 60px 40px;
             box-sizing: border-box;
             background-color: black;
@@ -65,12 +65,24 @@ class Baustellenschutz extends LitElement {
         }
 
 
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            width: 100%;
+            
+        }
+
 
 
         .description {
             display: flex;
             height: auto;
             box-sizing: border-box;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
 
         }
 
@@ -107,6 +119,81 @@ class Baustellenschutz extends LitElement {
         }
 
 
+
+        #buttonWrapper {
+            align-self: center;
+        }
+
+        .images {
+
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: 80% 50%;
+            
+           
+
+
+          }
+
+
+        mwc-button {
+            --mdc-theme-primary: black;
+            --mdc-theme-on-primary: rgba(242, 195, 29, 0.8);
+            transition: transform .2s;
+            
+
+             
+            
+            margin-bottom: 60px;
+            
+          }
+
+          mwc-button:hover {
+           
+            --mdc-theme-on-primary: white;
+            transform: scale(1.1);
+
+          }
+
+
+
+        @media only screen and (max-width: 1113px){
+            #below-logo-text > h1 { 
+
+                font-size: 3vw;
+            }
+
+            #background {
+                object-position: 50% 50%;
+                
+            }
+        }
+
+
+
+
+        @media only screen and (max-width: 1113px) { 
+
+            .description > div {
+
+                width: 100%;
+
+            }
+
+            .floatChange {
+                
+                flex-direction: column-reverse;
+                
+                
+            }
+
+
+
+
+        }
+
+
         
         
         `;
@@ -118,7 +205,7 @@ class Baustellenschutz extends LitElement {
         <section>
         
 
-        <h1>Baustellenschutz</h1>
+        <h1>Baustellenüberwachung</h1>
 
         <div class="logo-wrapper">
             <img id="background" src="../../public/images/baustellenschutz.jpg"/>
@@ -132,91 +219,35 @@ class Baustellenschutz extends LitElement {
         </div>
 
 
-        <div>
+        <main>
 
 
 
 
 
 
-        <div class="description">
+<div class="description">
 
-        <div>
-        
-        <p>Die Detektei Adlerblick entstand im Jahr 2007 unter Leitung des 
-        Geschäftsführers Cezar Augusto Granetto, der seit 1994 erfolgreich 
-        als Kaufhausdetektiv eines der größten Kaufhäuser Deutschlands betreut.
-        Zusammen mit anderen erfahrenen Detektiven und Doormen, vertreten wir nun die 
-        Interessen unserer Kunden.
-        </p>
-        
-        </div>
+<div style="display: inline-flex; flex-direction: column;">
+
+<p>Um unbefugtes Betreten durch Personen nach Arbeitsschluss und an Wochenenden zu verhindern ist es empfehlenswert die Arbeitsstätten oder auch Baustellen zu überwachen.
+. <br /> <br />
+Sei es wegen hochwertigen Maschinen oder Baustoffen, die auf Baustellen oft gelagert  werden oder um Diebstähle und Schäden zu vermeiden, eine Baustellenüberwachung ist die richtige Lösung. 
+<br /> <br />
+Dadurch wird diese Art von Beeinträchtigung effektiv bekämpft.
+</p>
 
 
-        <div style="background-color: yellow;">
+<div id="buttonWrapper">
+<a href="/anfragen" style="text-decoration: none;"><mwc-button raised label="Kontaktieren Sie uns"></mwc-button></a></div>
 
-        
-        
-        </div>
+</div>
 
+<div>
 
-        </div>
+<img class="images" src="../../public/images/baustelle_bild.jpg" style="object-position: 40% 0%;" />
 
-
-
-
-        <div class="description">
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-
-        <div>
-        
-        <p>Darüber hinaus verfügen unsere Mitarbeiter, nach langjähriger Erfahrung, über verschiedene Ermittlungsmethoden und Observationstechniken. 
-            Diese Eigenschaften sprechen für den Erfolg unserer Firma.
-        </p>
-        
-        </div>
-
-
-
-        </div>
-
-
-        <div class="description">
-
-
-        <div id="end">
-        
-        <p>
-            Unsere Sicherheitskonzepte werden individuell mit Berücksichtigung Ihres persönlichen Umfeldes konzipiert. <br /> <br />
-            Sie teilen uns Ihre Wünsche und Bedürfnisse mit, wir besprechen die Schwerpunkte gemeinsam, und wir bieten Ihnen mehrere Lösungen an. <br /> <br />
-            Bei Bedarf setzen wir auch Überwachungssysteme ein, die mit menschlichen Kenntnissen kombiniert für Sie zum Erfolg führen.<br /> <br />
-            Wir freuen uns darauf, mit Ihnen ins Gespräch zu kommen!
-        </p>
-
-        <mwc-button raised label="Kontaktieren Sie uns"></mwc-button>
-
-        
-        
-        </div>
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-
-        </div>
+</div> 
 
 
 
@@ -226,7 +257,16 @@ class Baustellenschutz extends LitElement {
 
 
 
-        </div>
+
+
+
+
+
+</div>
+
+
+
+        </main>
         
         
         </section>

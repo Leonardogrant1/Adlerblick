@@ -38,7 +38,7 @@ class Dienstleistungen extends LitElement {
             width: 100%;
             height: inherit;
             object-fit: cover;
-            object-position: 0px 0px;
+            object-position: 0% 80%;
             opacity: 0.9;
             position: absolute;
             
@@ -50,7 +50,7 @@ class Dienstleistungen extends LitElement {
             box-sizing: border-box;
             background-color: black;
             color: white;
-            opacity: 0.8;
+            opacity: 0.9;
             position: absolute;
             display: inline-flex;
             align-self: flex-end;
@@ -63,6 +63,18 @@ class Dienstleistungen extends LitElement {
             line-height: 1.5;
             width: 65%;
             margin: 0;
+        }
+
+        @media only screen and (max-width: 1113px){
+            #below-logo-text > h1 { 
+
+                font-size: 3vw;
+            }
+
+            #background {
+                object-position: 80% 0%;
+                
+            }
         }
 
 
@@ -107,6 +119,7 @@ class Dienstleistungen extends LitElement {
             display: flex;
             width: inherit;
             height: inherit;
+            overflow: hidden;
         }
 
         
@@ -119,17 +132,29 @@ class Dienstleistungen extends LitElement {
             object-position: 0px 0px;
             opacity: 0.9;
             z-index: 3;
-            position: absolute;
+            position: relative;
+
+            transform: scale(1);
+            transition: transform 0.2s ease-out;
 
         }
+
+        .item-info:hover img {
+
+            transform: scale(1.1);
+            
+
+        }
+
 
         .item-info > div {
 
             z-index: 4;
-            width: 100%;
-            height: 40%;
+            width: inherit;
+            height: calc(inherit - 60%);
             display: flex;
             justify-content: space-between;
+            position: absolute;
             align-self: flex-end;
             
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), black);
@@ -185,7 +210,7 @@ class Dienstleistungen extends LitElement {
         <h1>Dienstleistungen</h1>
 
         <div class="logo-wrapper">
-            <img id="background" src="../../public/images/wachmänner.jpg"/>
+            <img id="background" src="../../public/images/IMG_7029.jpg"/>
            
             <div id="below-logo-text">
         
@@ -237,7 +262,7 @@ class Dienstleistungen extends LitElement {
 
             <div class="item-info"> 
 
-            <img src="../../public/images/doorman.jpg">
+            <img src="../../public/images/IMG_7011.jpg">
 
                 <div>
                      <h1>Doorman</h1>
@@ -276,7 +301,7 @@ class Dienstleistungen extends LitElement {
 
     <div class="item-info"> 
 
-    <img src="../../public/images/empfangsdienst.jpg">
+    <img src="../../public/images/empfangsdienst_background.jpg" style="object-position: 0% 90%;" >
 
                 <div>
                  <h1>Empfangsdienst</h1>
@@ -310,7 +335,7 @@ class Dienstleistungen extends LitElement {
 
     <div class="item-info"> 
 
-    <img src="../../public/images/veranstaltungsschutz.jpg">
+    <img src="../../public/images/veranstaltungsschutz_background.jpg" style="object-position: 0% 90%;">
 
                 <div>
                  <h1>Veranstaltungsschutz</h1>

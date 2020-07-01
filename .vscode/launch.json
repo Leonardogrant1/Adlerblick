@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Chrome against localhost, with sourcemaps",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000/",
+        "port": 9222,
+        "sourceMaps": true,
+        "webRoot": "${workspaceRoot}",
+        "userDataDir": "${workspaceRoot}/.vscode/out/chrome",
+        "runtimeExecutable": "/usr/bin/chromium",
+        "runtimeArgs": ["--remote-debugging-port=9222"],
+        "skipFiles": ["./node_modules/**"]
+       }
+    //   {
+    //     "name": "Attach",
+    //     "type": "node",
+    //     "request": "attach",
+    //     "port": 9229,
+    //     "address": "172.25.0.22",
+    //     "restart": false,
+    //     "sourceMaps": true,
+    //     "outDir": "${workspaceRoot}/.meteor/local/build/programs/server",
+    //     "localRoot": "${workspaceRoot}",
+    //     "remoteRoot": null
+    //   }
+    ]
+  }

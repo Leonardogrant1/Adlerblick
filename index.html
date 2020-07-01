@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script type="module" src="src/components/app.js"></script>
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="module" src="/src/components/app.js"></script>
     <!-- <script src="{PATH}/alertify.min.js"></script> -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Comfortaa:wght@700&display=swap" rel="stylesheet">
@@ -21,9 +21,26 @@
   margin: 0; 
   }
 
+
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 5px;
+}
+
 html, body {
-    min-height: 100% !important;
-    height: 100%;
+   height: auto;
     
 }
     </style>

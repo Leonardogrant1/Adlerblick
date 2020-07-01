@@ -64,6 +64,14 @@ class Ladendetektive extends LitElement {
             margin: 0;
         }
 
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            width: 100%;
+            
+        }
 
 
 
@@ -71,7 +79,9 @@ class Ladendetektive extends LitElement {
             display: flex;
             height: auto;
             box-sizing: border-box;
-
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
 
 
@@ -107,10 +117,93 @@ class Ladendetektive extends LitElement {
         }
 
 
+        .images {
+
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: 80% 50%;
+            
+           
+
+
+          }
+
+
+        #buttonWrapper {
+            align-self: center;
+        }
+
+
+        mwc-button {
+            --mdc-theme-primary: black;
+            --mdc-theme-on-primary: rgba(242, 195, 29, 0.8);
+            transition: transform .2s;
+            
+
+             
+            
+            margin-bottom: 60px;
+            
+          }
+
+          mwc-button:hover {
+           
+            --mdc-theme-on-primary: white;
+            transform: scale(1.1);
+
+          }
+
+
+
+        @media only screen and (max-width: 1113px){
+            #below-logo-text > h1 { 
+
+                font-size: 3vw;
+            }
+
+            #background {
+                object-position: 50% 50%;
+                
+            }
+        }
+
+
+
+
+        @media only screen and (max-width: 1113px) { 
+
+            .description > div {
+
+                width: 100%;
+
+            }
+
+            .floatChange {
+                
+                flex-direction: column-reverse;
+                
+                
+            }
+
+
+
+
+        }
+
+
+
         
         
         `;
     }
+
+
+
+    firstUpdated(){
+        window.scrollTo(0, 0)
+    }
+
 
     render(){
         return html`
@@ -132,7 +225,7 @@ class Ladendetektive extends LitElement {
         </div>
 
 
-        <div>
+        <main>
 
 
 
@@ -141,92 +234,52 @@ class Ladendetektive extends LitElement {
 
         <div class="description">
 
-        <div>
+        <div style="display: inline-flex; flex-direction: column;">
         
-        <p>Die Detektei Adlerblick entstand im Jahr 2007 unter Leitung des 
-        Geschäftsführers Cezar Augusto Granetto, der seit 1994 erfolgreich 
-        als Kaufhausdetektiv eines der größten Kaufhäuser Deutschlands betreut.
-        Zusammen mit anderen erfahrenen Detektiven und Doormen, vertreten wir nun die 
-        Interessen unserer Kunden.
-        </p>
+        <p>Wie Sie es sicherlich wissen, die Zahl der Diebstähle in den Einzelhandelsgeschäften nimmt immer mehr zu. <br /> Dadurch entstehen jährliche Schäden in Milliardenhöhe. <br /> Wir helfen Ihnen diesen Schwund zu vermindern.
+        <br />    
+<br />
+        Die Präsenz einer Sicherheitsfirma bietet vorbeugenden Schutz zur Abschreckung möglicher Straftaten. <br /> Unsere Kaufhausdetektive überwachen die Waren und stellen die Personen fest, bei denen der Verdacht des Betruges oder des Ladendiebstahls besteht. <br /> Sie observieren und führen auch die Sachbearbeitung bei Feststellungen bis hin zur Ausfertigung vom Anzeigen und Zeugenaussagen, sowie Aussage als Zeuge vor Gericht durch.
+        <br />      
+        <br />
         
-        </div>
+        Die gestohlene Ware wird sichergestellt und in den Verkauf zurückgeführt. <br />
 
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-        </div>
-
-
-
-
-        <div class="description">
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-
-        <div>
-        
-        <p>Darüber hinaus verfügen unsere Mitarbeiter, nach langjähriger Erfahrung, über verschiedene Ermittlungsmethoden und Observationstechniken. 
-            Diese Eigenschaften sprechen für den Erfolg unserer Firma.
-        </p>
-        
-        </div>
-
-
-
-        </div>
-
-
-        <div class="description">
-
-
-        <div id="end">
-        
-        <p>
-            Unsere Sicherheitskonzepte werden individuell mit Berücksichtigung Ihres persönlichen Umfeldes konzipiert. <br /> <br />
-            Sie teilen uns Ihre Wünsche und Bedürfnisse mit, wir besprechen die Schwerpunkte gemeinsam, und wir bieten Ihnen mehrere Lösungen an. <br /> <br />
-            Bei Bedarf setzen wir auch Überwachungssysteme ein, die mit menschlichen Kenntnissen kombiniert für Sie zum Erfolg führen.<br /> <br />
-            Wir freuen uns darauf, mit Ihnen ins Gespräch zu kommen!
+Diskretion, Erfahrung, und gute Menschenkenntnisse sind die Eigenschaften, die die effiziente Ergebnisse unserer Kaufhausdetektive hervorheben.
         </p>
 
-        <mwc-button raised label="Kontaktieren Sie uns"></mwc-button>
 
-        
-        
-        </div>
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
+        <div id="buttonWrapper">
+        <a href="/anfragen" style="text-decoration: none;"><mwc-button raised label="Kontaktieren Sie uns"></mwc-button></a></div>
 
         </div>
 
+<div>
+
+        <img class="images" src="../../public/images/IMG_7029.jpg" />
+
+</div> 
+        
+        
+
+
+        
+
+ 
 
 
 
-
-
+        
 
 
 
         </div>
+
+
+
+
+
+        </main>
         
         
         </section>
@@ -237,3 +290,134 @@ class Ladendetektive extends LitElement {
 }
 
 customElements.define('ladendetektive-component', Ladendetektive);
+
+
+
+
+
+
+
+
+// render(){
+//     return html`
+    
+//     <section>
+    
+
+//     <h1>Ladendetektive</h1>
+
+//     <div class="logo-wrapper">
+//         <img id="background" src="../../public/images/detective.jpg"/>
+       
+//         <div id="below-logo-text">
+    
+//     <h1>Unsere Ladendetektive kämpfen bei Ihrem Kampf gegen den Diebstahl an fordester Front.</h1>
+    
+//     </div>
+        
+//     </div>
+
+
+//     <main>
+
+
+
+
+
+
+//     <div class="description">
+
+//     <div>
+    
+//     <p>Wie Sie es sicherlich wissen, die Zahl der Diebstähle in den Einzelhandelsgeschäften nimmt immer mehr zu. <br /> Dadurch entstehen jährliche Schäden in Milliardenhöhe. <br /> Wir helfen Ihnen diesen Schwund zu vermindern.
+//     </p>
+
+//     <p>Die Präsenz einer Sicherheitsfirma bietet vorbeugenden Schutz zur Abschreckung möglicher Straftaten. <br /> Unsere Kaufhausdetektive überwachen die Waren und stellen die Personen fest, bei denen der Verdacht des Betruges oder des Ladendiebstahls besteht. <br /> Sie observieren und führen auch die Sachbearbeitung bei Feststellungen bis hin zur Ausfertigung vom Anzeigen und Zeugenaussagen, sowie Aussage als Zeuge vor Gericht durch.
+//     </p>
+    
+//     </div>
+
+
+//     <div>
+
+//     <img class="images" src="../../public/images/IMG_7029.jpg"/>
+    
+//     </div>
+
+
+//     </div>
+
+
+
+
+//     <div class="description">
+
+
+//     <div>
+
+
+//     <img class="images" src="../../public/images/IMG_7022.jpg"/>
+    
+    
+//     </div>
+
+
+
+//     <div class="floatChange">
+    
+//     <p>Die Präsenz einer Sicherheitsfirma bietet vorbeugenden Schutz zur Abschreckung möglicher Straftaten. <br /> Unsere Kaufhausdetektive überwachen die Waren und stellen die Personen fest, bei denen der Verdacht des Betruges oder des Ladendiebstahls besteht. <br /> Sie observieren und führen auch die Sachbearbeitung bei Feststellungen bis hin zur Ausfertigung vom Anzeigen und Zeugenaussagen, sowie Aussage als Zeuge vor Gericht durch.
+//     </p>
+    
+//     </div>
+
+
+
+//     </div>
+
+
+//     <div class="description">
+
+
+//     <div id="end">
+    
+//     <p>
+//     Die gestohlene Ware wird sichergestellt und in den Verkauf zurückgeführt. <br />
+
+// Diskretion, Erfahrung, und gute Menschenkenntnisse sind die Eigenschaften, die die effiziente Ergebnisse unserer Kaufhausdetektive hervorheben.
+//     </p>
+
+//     <div id="buttonWrapper">
+//     <mwc-button raised label="Kontaktieren Sie uns"></mwc-button>
+//     </div>
+    
+    
+//     </div>
+
+
+//     <div>
+
+//     <img class="images" src="../../public/images/IMG_7022.jpg"/>
+    
+    
+//     </div>
+
+
+
+//     </div>
+
+
+
+
+
+
+
+
+
+//     </main>
+    
+    
+//     </section>
+    
+    
+//     `;
+// }

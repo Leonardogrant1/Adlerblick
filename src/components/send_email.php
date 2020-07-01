@@ -1,7 +1,7 @@
 <?php
 //send_email.php
 
-if(isset($_POST['submit'])) {}
+if(isset($_POST['submit'])) {
 $name = $_POST['Name'];
 $vorname = $_POST['Vorame'];
 

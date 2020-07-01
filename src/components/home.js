@@ -40,10 +40,17 @@ class Home extends LitElement {
          .content-wrapper-background #home-photo-background {
              width: 50%;
              height: 100%;
-             background-image: url('../../../public/images/home-background.jpg');
 
-             background-size:  auto 100%;
+             
          }
+
+         .content-wrapper-background #home-photo-background > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            
+        }
 
          .content-wrapper-background #section-background {
              width: 50%;
@@ -133,7 +140,65 @@ class Home extends LitElement {
 
 
           #services {
+            display: flex;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            box-sizing: border-box;
+            margin-bottom: 30px;
             
+          }
+
+          #services > img {
+             
+              height: inherit;
+              object-fit: cover;
+              position: absolute;
+              object-position: 40% 50%;
+              
+              left: 0;
+              width: 100%;
+              
+              
+          } 
+
+
+          #service-list {
+            
+            height: inherit;
+            display: inline-flex;
+            background-color: rgb(255, 215, 0);            
+            position: absolute;
+            opacity: 0.9;
+            
+            right: 0;
+            width: 100%;
+            
+            clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+          }
+
+          #service-list > div {
+              display: flex;
+              flex-direction: column;
+              color: black;
+              justify-content: center;
+              position: absolute;
+              right: 0;
+              z-index: 6;
+              margin-right: 15%;
+              align-self: center;
+              
+          }
+
+          #service-list > div > ul {
+            list-style-type: none;
+          }
+
+
+          #service-list li {
+              margin: 20px 0px;
+              font-family: 'Comfortaa', sans-serif;
+              font-size: 20px;
           }
 
           #services > h1 {
@@ -144,14 +209,7 @@ class Home extends LitElement {
               
           }
 
-          #service-list{
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 40px;
-          }
+          
 
 
           .service-item {
@@ -168,6 +226,7 @@ class Home extends LitElement {
           .service-item > img {
               width: auto;
               height: 50%;
+              object-fit: cover;
               border-radius: 6% 6% 0 0;
             
             }
@@ -187,6 +246,139 @@ class Home extends LitElement {
             }
         
         
+
+            @media only screen and (max-width: 1113px) { 
+
+
+                
+
+                #home-photo-background {
+
+                    position: absolute;
+                    z-index: 3;
+                    width: 100% !important;
+                      
+                     
+                    
+                    
+
+                }
+
+                #section-background {
+
+                    
+                    position: absolute;
+                    z-index: 4 !important;
+                    
+                    width: 100% !important; 
+                    
+                    
+                }
+
+                .rim {
+                    display: none;
+                }
+
+                #content-wrapper > .welcome {
+                    display: absolute;
+                    z-index: 6;
+                }
+
+            }
+
+            @keyframes fadein {
+                from { opacity: 0;
+                        
+                     }
+                to   { 
+                    opacity: 1; 
+                    
+                }
+            }
+
+
+            #dienste {
+                font-family: 'Comfortaa', sans-serif;
+                text-align: center;
+                padding-top: 100px;
+                opacity: 1;
+                background-color: black;
+                color: white;
+                animation: fadein 2s;
+            }
+
+            #dienste2 {
+                font-family: 'Comfortaa', sans-serif;
+                text-align: center;
+                padding-bottom: 100px;
+                font-size: 20px;
+                animation: fadein 2s;
+                background-color: black;
+                color: white;
+                
+            }
+
+
+
+            @media only screen and (max-width: 1040px){
+
+
+                #service-list {
+            
+                    width: 130%;
+                    
+                  }
+
+                  
+
+                  
+
+
+            }
+
+
+            @media only screen and (max-width: 785px){
+
+
+                #service-list {
+            
+                    width: 100% !important;
+                    clip-path: unset !important;
+                    
+                  }
+
+
+                  #service-list > div {
+                    left: 20px;
+                    right: unset !important;
+                  }
+
+                  
+
+
+            }
+
+            
+
+
+
+            @media only screen and (max-width: 610px){
+
+
+                #dienste {
+                    font-size: 23px
+                }
+    
+                #dienste2 {
+                    font-size: 17px
+                    
+                }
+
+
+
+            }
+
+
         
         
         
@@ -209,7 +401,9 @@ class Home extends LitElement {
 
                 <div id="section-background"></div>
                 
-                <div id="home-photo-background"></div>
+                <div id="home-photo-background">
+                <img src="../../../public/images/IMG_6997.jpg" />
+                </div>
 
                 </div>
 
@@ -218,9 +412,9 @@ class Home extends LitElement {
 
                 <div class="welcome">
                     <div>
-                    <h1>Detektei Adlerblick</h2>
+                    <h1>Detektei Adlerblick</h1>
                     <p>Wir sorgen für Ihre Sicherheit</p>
-                    <mwc-button raised label="Kontaktieren Sie uns"></mwc-button>
+                    <a href="/anfragen" style="text-decoration: none;"><mwc-button raised label="Kontaktieren Sie uns"></mwc-button></a>
                     
                     </div>
                 </div>
@@ -228,121 +422,39 @@ class Home extends LitElement {
 
             </section>
 
+
+<div style="width: 100%; height: auto; background-color: black; opacity: 0.9;">
+            <h1 id="dienste">Vom Ladendetektive bis zur Baustellenüberwachung</h1>
+            <p id="dienste2">Bei uns finden Sie Ihre individuellen Bedürfnisse</p>
+</div>
+            
             <section id="services">
 
-            <h1>Unsere Dienste</h1>
 
-            <div id="service-list">
+                <img src="../../../public/images/IMG_7000.jpg" />
 
+                <div id="service-list">
 
-            <div class="service-item">
+<div>
+                        <ul>
+                        
+                        <li>Ladendetektive <mwc-icon style="color: green;">check</mwc-icon></li>
+                        <li>Doorman <mwc-icon style="color: green;">check</mwc-icon></li>
+                        <li>Objektschutz <mwc-icon style="color: green;">check</mwc-icon></li>
+                        <li>Empfangsdienst <mwc-icon style="color: green;">check</mwc-icon></li>
+                        <li>Zutrittskontrolle <mwc-icon style="color: green;">check</mwc-icon></li>
+                        <li>Veranstaltungsschutz <mwc-icon style="color: green;">check</mwc-icon></li>
+                        <li>Baustellenüberwachung <mwc-icon style="color: green;">check</mwc-icon></li>
 
-            <img src="../../public/images/detective.jpg">
+                        
+                        </ul>
 
-            <div class="item-info"> 
+                        <a href="/dienstleistungen" style="text-decoration: none; text-align: center;"><mwc-button raised label="Unsere Dienste"></mwc-button></a>
 
-            <h1>Ladendetektive</h1>
-
-            <p class="read-more">Mehr erfahren</p>
-
-            </div>
-
-            </div>
-            
-            
-            
-            
-            <div class="service-item">
-
-
-            <img src="../../public/images/doorman.jpg">
-
-                <div class="item-info"> 
-
-                <h1>Doorman</h1>
-
-                <p class="read-more">Mehr erfahren</p>
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-            <div class="service-item">
-            <img src="../../public/images/objektschutz.jpg">
-
-                <div class="item-info"> 
-
-                    <h1>Objektschutz</h1>
-
-                    <p class="read-more">Mehr erfahren</p>
-
-                    </div>
-            </div>
-
-
-            <div class="service-item">
+</div>
                 
-            <img src="../../public/images/empfangsdienst.jpg">
-
-                <div class="item-info"> 
-
-                <h1>Empfangsdienst</h1>
-
-                <p class="read-more">Mehr erfahren</p>
-
-                </div>
-            </div>
-
-
-            <div class="service-item">
-                
-            <img src="../../public/images/zutrittskontrolle.jpg">
-
-            <div class="item-info"> 
-
-                <h1>Zutrittskontrolle</h1>
-
-                <p class="read-more">Mehr erfahren</p>
-
                 </div>
 
-            </div>
-
-
-            <div class="service-item">
-                
-            <img src="../../public/images/veranstaltungsschutz.jpg">
-
-                <div class="item-info"> 
-
-                <h1>Veranstaltungsschutz</h1>
-
-                <p class="read-more">Mehr erfahren</p>
-
-                </div>
-            </div>
-
-            <div class="service-item">
-                <img src="../../public/images/baustellenschutz.jpg">
-
-                <div class="item-info"> 
-
-                <h1>Baustellenüberwachung</h1>
-
-                <p class="read-more">Mehr erfahren</p>
-
-                </div>
-            </div>
-
-
-
-
-            </div>
 
             </section>
         
@@ -356,3 +468,130 @@ class Home extends LitElement {
 
 
 customElements.define('home-component', Home);
+
+
+
+
+
+
+
+
+
+
+{/* <section id="services">
+
+<h1>Unsere Dienste</h1>
+
+<div id="service-list">
+
+
+<div class="service-item">
+
+<img src="../../public/images/detective.jpg">
+
+<div class="item-info"> 
+
+<h1>Ladendetektive</h1>
+
+<p class="read-more">Mehr erfahren</p>
+
+</div>
+
+</div>
+
+
+
+
+<div class="service-item">
+
+
+<img src="../../public/images/IMG_7011.jpg">
+
+    <div class="item-info"> 
+
+    <h1>Doorman</h1>
+
+    <p class="read-more">Mehr erfahren</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div class="service-item">
+<img src="../../public/images/objektschutz.jpg">
+
+    <div class="item-info"> 
+
+        <h1>Objektschutz</h1>
+
+        <p class="read-more">Mehr erfahren</p>
+
+        </div>
+</div>
+
+
+<div class="service-item">
+    
+<img src="../../public/images/empfangsdienst_background.jpg">
+
+    <div class="item-info"> 
+
+    <h1>Empfangsdienst</h1>
+
+    <p class="read-more">Mehr erfahren</p>
+
+    </div>
+</div>
+
+
+<div class="service-item">
+    
+<img src="../../public/images/zutrittskontrolle.jpg">
+
+<div class="item-info"> 
+
+    <h1>Zutrittskontrolle</h1>
+
+    <p class="read-more">Mehr erfahren</p>
+
+    </div>
+
+</div>
+
+
+<div class="service-item">
+    
+<img src="../../public/images/veranstaltungsschutz_background.jpg">
+
+    <div class="item-info"> 
+
+    <h1>Veranstaltungsschutz</h1>
+
+    <p class="read-more">Mehr erfahren</p>
+
+    </div>
+</div>
+
+<div class="service-item">
+    <img src="../../public/images/baustellenschutz.jpg">
+
+    <div class="item-info"> 
+
+    <h1>Baustellenüberwachung</h1>
+
+    <p class="read-more">Mehr erfahren</p>
+
+    </div>
+</div>
+
+
+
+
+</div>
+
+</section> */}

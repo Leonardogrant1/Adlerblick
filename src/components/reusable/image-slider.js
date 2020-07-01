@@ -72,6 +72,20 @@ class ImageSlider extends LitElement {
     }
 
 
+    static get properties(){
+        return {
+            size: Number,
+            counter: Number
+        }
+    }
+
+
+    constructor(){
+        super();
+        this.size = null;
+        this.counter = null;
+    }
+
 
 
     firstUpdated(){
@@ -80,7 +94,7 @@ class ImageSlider extends LitElement {
 
         //on window size changed listener hinzufügen!
 
-
+        
 
 
 
@@ -96,6 +110,31 @@ class ImageSlider extends LitElement {
 
         const carouselSlide = this.shadowRoot.querySelector('.carousel-slide');
         const imgContainers = this.shadowRoot.querySelectorAll('.img-container');
+        
+
+        window.addEventListener("resize", event => {
+            console.log("sdgsdfgs");
+            const width = document.body.clientWidth;
+
+            carouselSlide.setAttribute("style", `width:${width}px`);
+
+            imgContainers.forEach( e => {
+                //e.setAttribute("style", `width:${width}px`);
+                
+                e.style.width = `${width}px`;
+                
+            });
+
+
+            
+            this.size = width;
+            
+
+        })
+        
+        
+        
+        
         const carouselImages = this.shadowRoot.querySelectorAll('.carousel-slide img');
 
         const prevBtn = this.shadowRoot.getElementById('prevButton');
@@ -106,28 +145,30 @@ class ImageSlider extends LitElement {
         })
 
 
-        let counter = 1;
-        const size = this.shadowRoot.querySelector(".carousel-container").clientWidth;
+        this.counter = 1;
+        this.size = this.shadowRoot.querySelector(".carousel-container").clientWidth;
 
     
 
-         carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+         carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
         nextBtn.addEventListener('click', () => {
 
-            if(counter >= carouselImages.length -1){
+            console.log(this.size)
+
+            if(this.counter >= carouselImages.length -1){
                 return;
             }
 
             carouselSlide.style.transition = "transform 0.4s ease-in-out";
-            counter++;
-            console.log(size);
-            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            this.counter++;
+            
+            carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
             //dispatch event
 
             this.dispatchEvent(new CustomEvent('current-changed', {
-                detail: counter,
+                detail: this.counter,
                 bubbles: true,
                 composed: true
             }));
@@ -136,20 +177,20 @@ class ImageSlider extends LitElement {
 
         prevBtn.addEventListener('click', () => {
 
-            if(counter <= 0){
+            if(this.counter <= 0){
                 return;
             }
 
             carouselSlide.style.transition = "transform 0.4s ease-in-out";
-            counter--;
+            this.counter--;
             console.log(this.shadowRoot.host.clientWidth);
-            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
 
             //dispatch event
 
             this.dispatchEvent(new CustomEvent('current-changed', {
-                detail: counter,
+                detail: this.counter,
                 bubbles: true,
                 composed: true
             }));
@@ -160,17 +201,17 @@ class ImageSlider extends LitElement {
         carouselSlide.addEventListener('transitionend', () => {
             console.log("fired");
 
-            if(carouselImages[counter].id === 'lastClone'){
+            if(carouselImages[this.counter].id === 'lastClone'){
                 carouselSlide.style.transition = "none";
-                counter = carouselImages.length - 2;
-                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                this.counter = carouselImages.length - 2;
+                carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
             } 
 
-            if(carouselImages[counter].id === 'firstClone'){
+            if(carouselImages[this.counter].id === 'firstClone'){
                 carouselSlide.style.transition = "none";
-                counter = carouselImages.length - counter;
-                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                this.counter = carouselImages.length - this.counter;
+                carouselSlide.style.transform = 'translateX(' + (-this.size * this.counter) + 'px)';
 
             } 
         })

@@ -95,7 +95,7 @@ class Referenzen extends LitElement {
 
         section > div {
             width: 100%;
-            height: 700px;
+            height: auto;
             padding: 40px 80px;
             box-sizing: border-box;
             display: flex;
@@ -105,18 +105,26 @@ class Referenzen extends LitElement {
             
         }
 
-        section > div > img {
+        section > div > div {
             position: absolute;
             width: 40%;
-            height: auto;
+            height: inherit;
             z-index: 4;
             opacity: 0.8;
+            box-sizing: border-box;
+
             display: inline-flex;
-            margin: 20px;
-            right:0;
+            padding: 20px;
+            right: 0;
             align-self: center;
             
 
+        }
+
+        section > div > div > img {
+            width: 100%;
+            height: auto;
+            
         }
 
         section > div > p {
@@ -131,6 +139,21 @@ class Referenzen extends LitElement {
             font-family: 'Comfortaa', sans-serif;
             border-left: 8px solid rgb(255,	215, 0, 0.8);
         }
+
+        @media only screen and (max-width: 780px){
+            section > div > p {
+                font-size: 4vw;
+            }
+
+            section > div > div > img {
+                
+                display: none;
+
+            }
+          }
+
+
+          
 
 
         
@@ -190,7 +213,9 @@ class Referenzen extends LitElement {
         this.shadowRoot.addEventListener('current-changed', event => {
             console.log(event.detail)
             this.changeCurrent(event.detail);
-        })
+        });
+
+
     }
 
 
@@ -226,8 +251,10 @@ class Referenzen extends LitElement {
 
             <div> 
 
+            <div>
                 <img src="../../public/images/logo.png" />
-            
+            </div>
+
                 ${this.loadCurrentText()}
             
             

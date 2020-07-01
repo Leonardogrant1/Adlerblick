@@ -23,6 +23,12 @@ class Firmenprofil extends LitElement {
                 background: black;
             }
 
+            @media only screen and (max-width: 780px){
+                section > h1 { 
+                    font-size: 5vw;
+                }
+              }
+
             .logo-wrapper {
                 width: 100%;
                 height: 600px;
@@ -63,10 +69,22 @@ class Firmenprofil extends LitElement {
                 
             }
 
-            .description {
+            main {
                 display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
                 height: auto;
-                box-sizing: border-box;
+                width: 100%;
+                
+            }
+
+            .description {
+                display: inline-flex;
+                height: auto;
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                
 
             }
 
@@ -80,12 +98,49 @@ class Firmenprofil extends LitElement {
 
             .description > div {
                 display: inline-flex;
+                
                 width: 50%;
+                
                 height: auto;
                 box-sizing: border-box;
                 justify-content: center;
                 
+                
+                
+                
             }
+
+
+            @media only screen and (max-width: 1113px) { 
+
+                .description > div {
+
+                    width: 100%;
+
+                }
+
+                .floatChange {
+                    
+                    flex-direction: column-reverse;
+                    
+                    
+                }
+
+
+            }
+
+
+
+            .images {
+
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                
+               
+
+
+              }
 
 
             .description > div p {
@@ -102,13 +157,22 @@ class Firmenprofil extends LitElement {
 
             }
 
+
+
+
+            #button-wrapper {
+                align-self: center;
+                
+
+            }
+
             mwc-button {
                 --mdc-theme-primary: black;
                 --mdc-theme-on-primary: rgba(242, 195, 29, 0.8);
                 transition: transform .2s;
                 
 
-                align-self: center; 
+                 
                 
                 margin-bottom: 60px;
                 
@@ -120,6 +184,10 @@ class Firmenprofil extends LitElement {
                 transform: scale(1.1);
     
               }
+
+
+              
+              
         
         
         
@@ -137,9 +205,12 @@ class Firmenprofil extends LitElement {
         <h1>Firmenprofil</h1>
 
         <div class="logo-wrapper">
-            <img id="background" src="../../public/images/firmenprofil-logo-hintergrund.jpg"/>
+            <img id="background" src="../../public/images/IMG_7000.jpg"/>
             <img id="logo" src="../../public/images/logo.png"/>
         </div>
+
+
+<main>
 
         <div class="description">
 
@@ -155,9 +226,9 @@ class Firmenprofil extends LitElement {
         </div>
 
 
-        <div style="background-color: yellow;">
+        <div>
 
-        
+        <img class="images" src="../../public/images/cezar-bild.png" />
         
         </div>
 
@@ -167,12 +238,12 @@ class Firmenprofil extends LitElement {
 
 
 
-        <div class="description">
+        <div class="description floatChange">
 
 
-        <div style="background-color: yellow;">
+        <div>
 
-        
+        <img class="images" src="../../public/images/marcelo-firmenprofil.png"/>
         
         </div>
 
@@ -203,17 +274,21 @@ class Firmenprofil extends LitElement {
             Wir freuen uns darauf, mit Ihnen ins Gespräch zu kommen!
         </p>
 
+<div id="button-wrapper">
         <mwc-button raised label="Kontaktieren Sie uns"></mwc-button>
-
+</div>
         
         
         </div>
 
 
-        <div style="background-color: yellow;">
+        <div>
 
-        
-        
+        <div>
+
+        <img class="images" src="../../public/images/firmenprofil_3.png" />
+        </div>
+  
         </div>
 
 
@@ -221,7 +296,7 @@ class Firmenprofil extends LitElement {
         </div>
 
 
-
+</main>
 
 
         </section>

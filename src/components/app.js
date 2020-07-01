@@ -1,4 +1,5 @@
 import {LitElement, css, html} from "lit-element";
+import { styleMap } from 'lit-html/directives/style-map';
 import "@material/mwc-button";
 import "@material/mwc-icon";
 import "jquery";
@@ -12,7 +13,10 @@ import "./firmenprofil";
 import "./referenzen";
 import "./dienstleistungen";
 import "./Stellenangebote";
-import "./Anfrage"
+import "./Anfrage";
+import "./Datenschutz";
+import "./Impressum";
+import "./Gallery";
 
 import "./dienstleistungen-einzeln/Ladendetektive";
 import "./dienstleistungen-einzeln/Doorman";
@@ -26,10 +30,21 @@ import "./dienstleistungen-einzeln/Baustellenschutz";
 
 
 
+
+const whenScrolled = ` opacity: 0.3;`
+
+
+
 class App extends LitElement {
 
     static get styles(){
         return css`
+
+
+
+
+
+
 
         
         
@@ -41,12 +56,19 @@ class App extends LitElement {
             box-sizing: border-box;
 
             width: 100%;
-            height: 50%;
+            
             
         }
 
 
-        header {
+        main {
+            transition: all .5s;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+       main > #header {
             width: 100%;
             left: 0;
             top: 0;
@@ -58,8 +80,10 @@ class App extends LitElement {
             box-sizing: border-box;
             background-color: white;
             z-index: 20;
-
+            
             position: sticky;
+            height: auto;
+
 
             z-index: 10;
             display: flex;
@@ -68,17 +92,157 @@ class App extends LitElement {
         
          }
 
-         header a > img {
+         
+
+         main > #header > a > img {
+             
              margin-left: 40px;
              margin-top: 5px;
+             height: 85px;
          }
 
-         #navigationBar-wrapper {
-             display: inline;
+         main > #header > #navigationBar-wrapper {
+             
              width: auto;
+             
              margin-right: 100px;
 
          }
+
+         #fillView, #menu {
+             display: none;
+         }
+
+         #menu  {
+                
+            align-self: center;
+            margin: 10px;
+            width: 50px;
+            float: right;
+            cursor: pointer;
+        }
+
+
+
+
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            list-style: none;
+            text-decoration: none;
+            width: 250px;
+            height: 100%;
+            background-color: rgb(255, 215, 0, 0.8);
+            z-index: 20;
+            font-family: "Roboto", sans-serif;
+            
+        }
+
+        .sidebar > header {
+            display: flex;
+            font-family: "Roboto", sans-serif;
+            font-size: 19px;
+            text-align: center;
+            line-height: 30px;
+            padding: 20px;
+            border-bottom: 1px solid rgb(170, 130, 0, 0.8);
+
+            cursor: pointer;
+            
+        }
+
+        .sidebar header > div {
+            height: 25px;
+            align-self: center;
+            
+            
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            margin: 0; 
+            padding: 0;
+
+        }
+
+        .sidebar ul a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            line-height: 65px;
+            font-size: 18px;
+            color: black;
+            padding-left: 40px;
+            box-sizing: border-box;
+            
+            border-bottom: 1px solid rgb(170, 130, 0, 0.8);
+        }
+
+
+
+
+
+
+
+         @media only screen and (max-width: 1307px) {
+           
+           
+            #navigationBar > li > a > p {
+                font-size: 1.2vw;
+
+               
+            }
+
+
+
+
+          } 
+
+
+
+
+         @media only screen and (max-width: 1113px) {
+
+
+            
+
+            #navigationBar-wrapper {
+                display: none;
+                
+                
+   
+            }
+
+            #menu {
+                
+                display: inline-block;
+                align-self: center;
+                margin: 10px;
+                width: 50px;
+                float: right;
+            }
+
+            #fillView {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+            }
+
+
+            header a > img {
+                height: 60px;
+            }
+
+
+
+            
+
+          } 
+
+
+
+
 
          #navigationBar > li, #navigationBar > li p{
              display: inline-block;
@@ -90,6 +254,10 @@ class App extends LitElement {
              font-family: 'Roboto', sans-serif;
 
          }
+
+
+    
+
 
 
          #navigationBar > li > a > p:hover {
@@ -215,8 +383,15 @@ class App extends LitElement {
                 margin: 8px;
                 font-size: 20px;
                 font-family: 'Roboto', sans-serif;
+                cursor: pointer;
+                color: black;
+                text-decoration: none;
 
             }
+
+
+
+
 
             
 
@@ -226,14 +401,24 @@ class App extends LitElement {
 
     static get properties(){
         return {
-
+            showSidebar: { type: Boolean }
         }
+    }
+
+    constructor(){
+        super();
+        this.showSidebar = false;
+        
     }
 
 
 
 
     firstUpdated(){
+
+
+
+        
 
         console.log("jaddasd")
 
@@ -257,25 +442,100 @@ class App extends LitElement {
           ]); */
 
           router.setRoutes([
-            {path: '/', component: 'home-component'},
-            {path: '/firmenprofil', component: 'firmenprofil-component'},
-            {path: '/dienstleistungen', component: 'dienstleistungen-component'},
-            {path: '/ladendetektive', component: 'ladendetektive-component'},
-            {path: '/doorman', component: 'doorman-component'},
-            {path: '/objektschutz', component: 'objektschutz-component'},
-            {path: '/empfangsdienst', component: 'empfangsdienst-component'},
-            {path: "/zutrittskontrolle", component: 'zutrittskontrolle-component'},
-            {path: "/veranstaltungsschutz", component: 'veranstaltungsschutz-component'},
-            {path: "/baustellenschutz", component: 'baustellenschutz-component'},
-            {path: '/referenzen', component: 'referenzen-component'},
-            {path: '/stellenangebote', component: 'stellenangebote-component'},
-            {path: '/anfragen', component: 'anfragen-component'}
+            {path: '/', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'home-component'},
+            {path: '/firmenprofil', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'firmenprofil-component'},
+            {path: '/dienstleistungen', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'dienstleistungen-component'},
+            {path: '/ladendetektive', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'ladendetektive-component'},
+            {path: '/doorman', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'doorman-component'},
+            {path: '/objektschutz', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'objektschutz-component'},
+            {path: '/empfangsdienst', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'empfangsdienst-component'},
+            {path: "/zutrittskontrolle", action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'zutrittskontrolle-component'},
+            {path: "/veranstaltungsschutz", action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'veranstaltungsschutz-component'},
+            {path: "/baustellenüberwachung", action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'baustellenschutz-component'},
+            {path: '/referenzen', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'referenzen-component'},
+            {path: '/stellenangebote', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'stellenangebote-component'},
+            {path: '/anfragen', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'anfragen-component'},
+              {path: '/datenschutz', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'datenschutz-component'},
+            {path: '/impressum', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'impressum-component'},
+              {path: '/bildergalerie', action: (ctx, commands) => {
+                window.scrollTo(0, 0);
+              }, component: 'gallery-component'}
          ]);
+
+
+
+
+
+
+
+
+
+
 
 
     }
 
 
+
+    // toggleExtendSidebar(){
+        
+    //         this.showSidebarExtended = !this.showSidebarExtended;
+        
+    // }
+
+
+    sidebarSlide(){
+        if(this.showSidebar){
+
+            return {
+                left: 0,
+                boxShadow: "5px 10px 10px rgb(180, 140, 0, 0.8)",
+                transition: 'left 0.4s ease'
+            }
+
+
+
+        }else{
+
+            return {
+                left: '-250px',
+                boxShadow: "none",
+                transition: 'left 0.4s ease'
+            }
+
+
+        }
+    }
 
 
 
@@ -283,9 +543,60 @@ class App extends LitElement {
     render(){
         return html`
 
-            <header>
+
+
+
+
+
+<div class="sidebar" style="${styleMap(this.sidebarSlide())}"> 
+
+<header> 
+
+<div>
+<mwc-icon @click="${() => this.showSidebar = false}">close</mwc-icon>
+</div>
+<h4>Menu schließen</h4>
+
+
+</header>
+
+<ul>
+
+<li @click="${() => this.showSidebar = false}"><a href="/firmenprofil">Firmenprofil</a></li>
+<li @click="${() => this.showSidebar = false}"><a href="/dienstleistungen">Dienstleistungen</a></li>
+<li @click="${() => this.showSidebar = false}"><a href="/referenzen">Referenzen</a></li>
+<li @click="${() => this.showSidebar = false}"><a href="/bildergalerie">Bildergalerie</a></li>
+<li @click="${() => this.showSidebar = false}"><a href="/stellenangebote">Stellenangebote</a></li>
+<li @click="${() => this.showSidebar = false}"><a href="/anfragen">Anfragen</a></li>
+
+</ul>
+
+
+
+</div>
+
+
+
+
+
+
+
+<main style="${styleMap(this.showSidebar ? {marginLeft: "250px"} : {marginLeft: 0})}">
+
+
+            <header id="header">
+
+            <div id="fillView">
+            </div>
 
             <a href="/"><img src="../../public/images/logo.png" height="85px" width="auto"></a>
+
+
+            <div id="menu"> 
+            
+            <mwc-icon @click="${() => this.showSidebar = true}">menu</mwc-icon>
+            
+            </div>
 
             <div id="navigationBar-wrapper">
                 <ul id="navigationBar">
@@ -303,7 +614,7 @@ class App extends LitElement {
                         <a href="/empfangsdienst"><li class="dropdown-item"><p>Empfangsdienst</p></li></a>
                         <a href="/zutrittskontrolle"><li class="dropdown-item"><p>Zutrittskontrolle</p></li></a>
                         <a href="/veranstaltungsschutz"><li class="dropdown-item"><p>Veranstaltungsschutz</p></li></a>
-                        <a href="/baustellenschutz"><li class="dropdown-item"><p>Baustellenschutz</p></li></a>
+                        <a href="/baustellenüberwachung"><li class="dropdown-item"><p>Baustellenschutz</p></li></a>
 
                     </ul>
 
@@ -345,10 +656,9 @@ class App extends LitElement {
 
                 <p style="font-style: bold;">DETEKTEI ADLERBLICK</p>
                 <p>Biebricher Str. 7f, 55252 Mainz-Kastel</p>
-                <p>Tel. 0611 / 1721991</p>
-                <p>Fax 0611 / 1721990</p>
-                <p>Mobil 01520 / 3360001</p>
-                <p>E-Mail : info@detektei-adlerblick.de</p> 
+            
+                <p>Mobil: 01520 / 3360001</p>
+                <p>E-Mail: info@detektei-adlerblick.de</p> 
                 
                 </div>
 
@@ -359,13 +669,15 @@ class App extends LitElement {
 
                 <div class="impressum">
                 
-                <a>Impressum</a>
-                <a>Datenschutz</a>
+                <a href="/impressum">Impressum</a>
+                <a href="/datenschutz">Datenschutz</a>
 
                 </div>
             
             
             </footer>
+
+</main>
 
         
         

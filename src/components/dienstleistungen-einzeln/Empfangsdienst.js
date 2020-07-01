@@ -36,7 +36,7 @@ class Empfangsdienst extends LitElement {
             width: 100%;
             height: inherit;
             object-fit: cover;
-            object-position: 0px 0px;
+            object-position: 0px 60%;
             opacity: 0.9;
             position: absolute;
             
@@ -44,7 +44,7 @@ class Empfangsdienst extends LitElement {
 
 
         #below-logo-text {
-            width: 100%;
+            width: inherit;
             padding: 60px 40px;
             box-sizing: border-box;
             background-color: black;
@@ -65,12 +65,36 @@ class Empfangsdienst extends LitElement {
         }
 
 
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+            width: 100%;
+            
+        }
+
+        .images {
+
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: 80% 50%;
+            
+           
+
+
+          }
+
 
 
         .description {
             display: flex;
             height: auto;
             box-sizing: border-box;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
 
         }
 
@@ -106,6 +130,80 @@ class Empfangsdienst extends LitElement {
 
         }
 
+        .images {
+
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: 80% 50%;
+            
+           
+
+
+          }
+
+
+        #buttonWrapper {
+            align-self: center;
+        }
+
+
+        mwc-button {
+            --mdc-theme-primary: black;
+            --mdc-theme-on-primary: rgba(242, 195, 29, 0.8);
+            transition: transform .2s;
+            
+
+             
+            
+            margin-bottom: 60px;
+            
+          }
+
+          mwc-button:hover {
+           
+            --mdc-theme-on-primary: white;
+            transform: scale(1.1);
+
+          }
+
+
+
+        @media only screen and (max-width: 1113px){
+            #below-logo-text > h1 { 
+
+                font-size: 3vw;
+            }
+
+            #background {
+                object-position: 50% 50%;
+                
+            }
+        }
+
+
+
+
+        @media only screen and (max-width: 1113px) { 
+
+            .description > div {
+
+                width: 100%;
+
+            }
+
+            .floatChange {
+                
+                flex-direction: column-reverse;
+                
+                
+            }
+
+
+
+
+        }
+
 
         
         
@@ -121,7 +219,7 @@ class Empfangsdienst extends LitElement {
         <h1>Empfangsdienst</h1>
 
         <div class="logo-wrapper">
-            <img id="background" src="../../public/images/empfangsdienst.jpg"/>
+            <img id="background" src="../../public/images/empfangsdienst_background.jpg"/>
            
             <div id="below-logo-text">
         
@@ -132,91 +230,35 @@ class Empfangsdienst extends LitElement {
         </div>
 
 
-        <div>
+        <main>
 
 
 
 
 
 
-        <div class="description">
+<div class="description">
 
-        <div>
-        
-        <p>Die Detektei Adlerblick entstand im Jahr 2007 unter Leitung des 
-        Geschäftsführers Cezar Augusto Granetto, der seit 1994 erfolgreich 
-        als Kaufhausdetektiv eines der größten Kaufhäuser Deutschlands betreut.
-        Zusammen mit anderen erfahrenen Detektiven und Doormen, vertreten wir nun die 
-        Interessen unserer Kunden.
-        </p>
-        
-        </div>
+<div style="display: inline-flex; flex-direction: column;">
+
+<p>Die Aufgabe des Pforten- und Empfangsdienstes ist die Überwachung und Kontrolle der Personen, Waren und des Fahrzeugverkehrs im Rahmen des Objektschutzes zu gewährleisten. Eine andere Funktion ist auch der Service für Mitarbeiter, Kunden und Besucher. Informationen, Schlüsselausgabe, Ausweiskontrollen, Führung des Besucherbuches, Telefondienst und Schließdienst im Objekt gehören ebenfalls dazu.
+<br />    
+<br />
+Daher können sie jederzeit bei Unregelmäßigkeiten oder Auffälligkeiten direkt tätig werden.
+
+</p>
 
 
-        <div style="background-color: yellow;">
+<div id="buttonWrapper">
+<a href="/anfragen" style="text-decoration: none;"><mwc-button raised label="Kontaktieren Sie uns"></mwc-button></a></div>
 
-        
-        
-        </div>
+</div>
 
+<div>
 
-        </div>
+<img class="images" src="../../public/images/wachmann7.jpg" style="object-position: 40% 0%;" />
 
-
-
-
-        <div class="description">
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-
-        <div>
-        
-        <p>Darüber hinaus verfügen unsere Mitarbeiter, nach langjähriger Erfahrung, über verschiedene Ermittlungsmethoden und Observationstechniken. 
-            Diese Eigenschaften sprechen für den Erfolg unserer Firma.
-        </p>
-        
-        </div>
-
-
-
-        </div>
-
-
-        <div class="description">
-
-
-        <div id="end">
-        
-        <p>
-            Unsere Sicherheitskonzepte werden individuell mit Berücksichtigung Ihres persönlichen Umfeldes konzipiert. <br /> <br />
-            Sie teilen uns Ihre Wünsche und Bedürfnisse mit, wir besprechen die Schwerpunkte gemeinsam, und wir bieten Ihnen mehrere Lösungen an. <br /> <br />
-            Bei Bedarf setzen wir auch Überwachungssysteme ein, die mit menschlichen Kenntnissen kombiniert für Sie zum Erfolg führen.<br /> <br />
-            Wir freuen uns darauf, mit Ihnen ins Gespräch zu kommen!
-        </p>
-
-        <mwc-button raised label="Kontaktieren Sie uns"></mwc-button>
-
-        
-        
-        </div>
-
-
-        <div style="background-color: yellow;">
-
-        
-        
-        </div>
-
-
-
-        </div>
+</div> 
 
 
 
@@ -226,7 +268,16 @@ class Empfangsdienst extends LitElement {
 
 
 
-        </div>
+
+
+
+
+
+</div>
+
+
+
+        </main>
         
         
         </section>

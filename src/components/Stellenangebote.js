@@ -67,6 +67,24 @@ class StellenAngebote extends LitElement {
             
         }
 
+        @media only screen and (max-width: 1113px){
+            #below-logo-text > div > h1 { 
+
+                font-size: 4vw !important;
+            }
+
+            #below-logo-text > div > p { 
+
+                font-size: 2.5vw !important;
+            }
+
+            #background {
+                object-position: 50% 50%;
+                
+            }
+        }
+
+
         #below-logo-text > div > h1 {
             font-size: 2.0rem;
             font-family: 'Comfortaa', sans-serif;
@@ -118,7 +136,7 @@ class StellenAngebote extends LitElement {
           .einleitung > h1 {
             font-size: 30px;
             font-family: 'Comfortaa', sans-serif;
-            
+          
         }
 
         #lists {
@@ -204,6 +222,7 @@ class StellenAngebote extends LitElement {
           form > div {
               display: inline-flex;
               margin: 30px 0px;
+              flex-wrap: wrap;
               
               
           }
@@ -211,7 +230,7 @@ class StellenAngebote extends LitElement {
           form > div > input {
 
             flex-grow: 1;
-            margin: 0px 5px;
+            margin: 20px 5px;
           } 
 
           button {
@@ -308,7 +327,7 @@ class StellenAngebote extends LitElement {
                               <h1>Schließen Sie sich unserem Team an!</h1>
                               <p> 
             Sind Sie im Alter zwischen 20 bis 45 alt, haben Sie ein einwandfreies Führungszeugnis, IHK Sachkundeprüfung, gute Deutschkenntnisse, Sie sind körperlich fit und können flexibel arbeiten ?
-            </p>
+            </p> <br />
             <h2>Sie sind bei uns herzlich willkommen!</h2>
                                 </div>
                               
