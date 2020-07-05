@@ -3,6 +3,22 @@ import "@material/mwc-button";
 import "@material/mwc-icon";
 
 
+
+
+import "../../public/images/IMG_7059.jpg";
+import "../../public/images/IMG_7029.jpg";
+import "../../public/images/detective.jpg";
+import "../../public/images/IMG_7011.jpg";
+import "../../public/images/objektschutz.jpg";
+import "../../public/images/empfangsdienst_background.jpg";
+
+
+import "../../public/images/zutrittskontrolle.jpg";
+import "../../public/images/veranstaltungsschutz_background.jpg";
+import "../../public/images/baustellenschutz.jpg";
+
+
+
 class Dienstleistungen extends LitElement {
 
 
@@ -240,7 +256,7 @@ class Dienstleistungen extends LitElement {
 
             <div class="item-info"> 
 
-            <img src="../../public/images/detective.jpg">
+            <img src="../../public/images/IMG_7059.jpg">
 
                 <div>
                  <h1>Ladendetektive</h1>
@@ -262,6 +278,7 @@ class Dienstleistungen extends LitElement {
 
             <div class="item-info"> 
 
+            
             <img src="../../public/images/IMG_7011.jpg">
 
                 <div>
@@ -284,6 +301,7 @@ class Dienstleistungen extends LitElement {
 
     <div class="item-info"> 
 
+
     <img src="../../public/images/objektschutz.jpg">
 
 <div>
@@ -301,6 +319,10 @@ class Dienstleistungen extends LitElement {
 
     <div class="item-info"> 
 
+
+
+    
+
     <img src="../../public/images/empfangsdienst_background.jpg" style="object-position: 0% 90%;" >
 
                 <div>
@@ -316,6 +338,8 @@ class Dienstleistungen extends LitElement {
     
 
 <div class="item-info"> 
+
+
 
 <img src="../../public/images/zutrittskontrolle.jpg">
 
@@ -335,6 +359,7 @@ class Dienstleistungen extends LitElement {
 
     <div class="item-info"> 
 
+
     <img src="../../public/images/veranstaltungsschutz_background.jpg" style="object-position: 0% 90%;">
 
                 <div>
@@ -349,12 +374,13 @@ class Dienstleistungen extends LitElement {
 
     <div class="item-info"> 
 
+
     <img src="../../public/images/baustellenschutz.jpg">
 
 <div>
  <h1>Baustellenschutz</h1>
 
- <a href="/baustellenschutz"><div class="show-more"><mwc-icon class="icon">keyboard_arrow_right</mwc-icon></div></a>
+ <a href="/baustellenueberwachung"><div class="show-more"><mwc-icon class="icon">keyboard_arrow_right</mwc-icon></div></a>
  </div>
     </div>
 </div>

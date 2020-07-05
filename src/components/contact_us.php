@@ -10,7 +10,7 @@ $betreff = $_POST['Betreff'];
 $anfrage = $_POST['Anfrage'];
 
 
-$mailTo = "LeonardoGranetto@web.de";
+$mailTo = "info@detektei-adlerblick.de";
 
 $message = "Name: ".$name."\n Vorname: ".$vorname."\n Betreff: ".$betreff."\n\n Anfrage: ".$anfrage;
 
@@ -20,6 +20,10 @@ $txt = "Du hast eine Anfrage von ".$name." erhalten.\n\n".$message;
 mail($mailTo, "Anfrage", $txt, $headers);
 
 header("Location: index.php?mailsend");
+
+echo '<script language="javascript">;';
+echo 'alert("Ihre Nachricht wurde versendet")';
+echo '</script>';
 
 
 }

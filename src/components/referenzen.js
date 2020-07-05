@@ -3,7 +3,10 @@ import "@material/mwc-button";
 import "./reusable/image-slider";
 
 
-
+import "../../public/images/galeria-karstadt-kaufhof-logo.png";
+import "../../public/images/karstadt-lebensmittel-logo.png";
+import "../../public/images/le-buffet-logo.png";
+import "../../public/images/dinner-for-you.png";
 
 
 
@@ -95,6 +98,7 @@ class Referenzen extends LitElement {
 
         section > div {
             width: 100%;
+            min-height: 500px;
             height: auto;
             padding: 40px 80px;
             box-sizing: border-box;

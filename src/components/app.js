@@ -5,6 +5,25 @@ import "@material/mwc-icon";
 import "jquery";
 
 
+
+
+//Logo für Webpack
+
+import Logo from "../../public/images/logo.png";
+
+import "../../public/images/background_contact.jpg";
+import "../../public/images/baustelle_bild.jpg";
+import "../../public/images/wachmann7.jpg";
+import "../../public/images/IMG_6980.jpg";
+import "../../public/images/veranstaltungsschutz_bild.jpg";
+import "../../public/images/wachmänner-anfrage.jpg";
+import "../../public/images/image12.png";
+
+
+
+
+
+
 import {Router} from '@vaadin/router';
 
 //Components
@@ -17,6 +36,7 @@ import "./Anfrage";
 import "./Datenschutz";
 import "./Impressum";
 import "./Gallery";
+import "./NotFound";
 
 import "./dienstleistungen-einzeln/Ladendetektive";
 import "./dienstleistungen-einzeln/Doorman";
@@ -54,6 +74,7 @@ class App extends LitElement {
             right: 0;
             bottom: 0;
             box-sizing: border-box;
+            
 
             width: 100%;
             
@@ -63,9 +84,11 @@ class App extends LitElement {
 
         main {
             transition: all .5s;
-            overflow: hidden;
+            
             width: 100%;
             height: 100%;
+
+            display: block;
         }
 
        main > #header {
@@ -73,13 +96,11 @@ class App extends LitElement {
             left: 0;
             top: 0;
             right: 0;
-            bottom: 0;
-            height: auto;
             border-bottom: 2px solid rgb(242, 195, 29);
             padding: 5px;
             box-sizing: border-box;
             background-color: white;
-            z-index: 20;
+            
             
             position: sticky;
             height: auto;
@@ -325,7 +346,7 @@ class App extends LitElement {
             footer {
                 width: 100%;
                 height: auto;
-                background-color: rgb(255, 215, 0, 0.8);
+                background-color: rgba(255, 215, 0, 0.8);
                 padding: 30px;
                 box-sizing: border-box;
                 border-top: 1px solid black;
@@ -469,7 +490,7 @@ class App extends LitElement {
             {path: "/veranstaltungsschutz", action: (ctx, commands) => {
                 window.scrollTo(0, 0);
               }, component: 'veranstaltungsschutz-component'},
-            {path: "/baustellenüberwachung", action: (ctx, commands) => {
+            {path: "/baustellenueberwachung", action: (ctx, commands) => {
                 window.scrollTo(0, 0);
               }, component: 'baustellenschutz-component'},
             {path: '/referenzen', action: (ctx, commands) => {
@@ -489,7 +510,8 @@ class App extends LitElement {
               }, component: 'impressum-component'},
               {path: '/bildergalerie', action: (ctx, commands) => {
                 window.scrollTo(0, 0);
-              }, component: 'gallery-component'}
+              }, component: 'gallery-component'},
+              {path: '(.*)', component: 'not-found'}
          ]);
 
 
@@ -555,7 +577,7 @@ class App extends LitElement {
 <div>
 <mwc-icon @click="${() => this.showSidebar = false}">close</mwc-icon>
 </div>
-<h4>Menu schließen</h4>
+<h4  @click="${() => this.showSidebar = false}" >Menu schließen</h4>
 
 
 </header>
@@ -589,7 +611,7 @@ class App extends LitElement {
             <div id="fillView">
             </div>
 
-            <a href="/"><img src="../../public/images/logo.png" height="85px" width="auto"></a>
+            <a href="/"><img src="${Logo}" height="85px" width="auto"></a>
 
 
             <div id="menu"> 
@@ -614,7 +636,7 @@ class App extends LitElement {
                         <a href="/empfangsdienst"><li class="dropdown-item"><p>Empfangsdienst</p></li></a>
                         <a href="/zutrittskontrolle"><li class="dropdown-item"><p>Zutrittskontrolle</p></li></a>
                         <a href="/veranstaltungsschutz"><li class="dropdown-item"><p>Veranstaltungsschutz</p></li></a>
-                        <a href="/baustellenüberwachung"><li class="dropdown-item"><p>Baustellenschutz</p></li></a>
+                        <a href="/baustellenueberwachung"><li class="dropdown-item"><p>Baustellenschutz</p></li></a>
 
                     </ul>
 

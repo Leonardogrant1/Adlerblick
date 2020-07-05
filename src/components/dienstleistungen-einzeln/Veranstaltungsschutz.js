@@ -2,6 +2,8 @@ import {LitElement, css, html} from "lit-element";
 import "@material/mwc-button";
 import "@material/mwc-icon";
 
+
+
 class Veranstaltungsschutz extends LitElement {
 
 

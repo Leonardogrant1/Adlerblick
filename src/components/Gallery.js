@@ -3,6 +3,26 @@ import {LitElement, css, html} from "lit-element";
 import "./reusable/image-gallery";
 
 
+import "../../public/gallery-images/image1.jpg";
+import "../../public/gallery-images/image2.jpg";
+import "../../public/gallery-images/image3.jpg";
+import "../../public/gallery-images/image4.jpg";
+import "../../public/gallery-images/image5.jpg";
+import "../../public/gallery-images/image6.jpg";
+import "../../public/gallery-images/image7.jpg";
+import "../../public/gallery-images/image8.jpg";
+import "../../public/gallery-images/image9.jpg";
+import "../../public/gallery-images/image10.jpg";
+import "../../public/gallery-images/image11.jpg";
+import "../../public/gallery-images/image12.jpg";
+import "../../public/gallery-images/image13.jpg";
+import "../../public/gallery-images/image14.jpg";
+import "../../public/gallery-images/image15.jpg";
+import "../../public/gallery-images/image16.jpg";
+
+
+
+
 
 const images = [
     {src: "../../public/gallery-images/image1.jpg", alt: "Bild 1"},

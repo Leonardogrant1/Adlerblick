@@ -1,6 +1,13 @@
 import {LitElement, css, html} from "lit-element";
 import "@material/mwc-button";
 
+
+
+import backgroundTop from "../../public/images/IMG_6997.jpg";
+import "../../public/images/IMG_7000.jpg";
+
+
+
 class Home extends LitElement {
 
 
@@ -402,7 +409,7 @@ class Home extends LitElement {
                 <div id="section-background"></div>
                 
                 <div id="home-photo-background">
-                <img src="../../../public/images/IMG_6997.jpg" />
+                <img src="${backgroundTop}" />
                 </div>
 
                 </div>
@@ -424,7 +431,7 @@ class Home extends LitElement {
 
 
 <div style="width: 100%; height: auto; background-color: black; opacity: 0.9;">
-            <h1 id="dienste">Vom Ladendetektive bis zur Baustellenüberwachung</h1>
+            <h1 id="dienste">Vom Ladendetektiv bis zur Baustellenüberwachung</h1>
             <p id="dienste2">Bei uns finden Sie Ihre individuellen Bedürfnisse</p>
 </div>
             

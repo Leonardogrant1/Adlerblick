@@ -214,7 +214,7 @@ class Ladendetektive extends LitElement {
         <h1>Ladendetektive</h1>
 
         <div class="logo-wrapper">
-            <img id="background" src="../../public/images/detective.jpg"/>
+            <img id="background" src="../../public/images/IMG_7059.jpg" style="object-position: 50% 50%;"/>
            
             <div id="below-logo-text">
         

@@ -1,7 +1,10 @@
 import {LitElement, css, html} from "lit-element";
 import "@material/mwc-button";
 
-
+import "../../public/images/IMG_7000.jpg";
+import "../../public/images/cezar-bild.png";
+import "../../public/images/marcelo-firmenprofil.png";
+import "../../public/images/firmenprofil_3.png";
 
 
 class Firmenprofil extends LitElement {
@@ -284,10 +287,10 @@ class Firmenprofil extends LitElement {
 
         <div>
 
-        <div>
+        
 
         <img class="images" src="../../public/images/firmenprofil_3.png" />
-        </div>
+        
   
         </div>
 

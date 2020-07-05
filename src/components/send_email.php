@@ -12,7 +12,7 @@ $ort = $_POST['Ort'];
 $qualis = $_POST['Qualifikationen'];
 $tätigkeiten = $_POST['Tätigkeiten'];
 
-$mailTo = "LeonardoGranetto@web.de";
+$mailTo = "bewerbung@detektei-adlerblick.de";
 
 $message = "Name: ".$name."\n Vorname: ".$vorname."\n Adresse: ".$street.", ".$ort."\n\n Qualifikationen: ".$qualis."\n\n Bisherige Tätigkeiten: ".$tätigkeiten;
 
@@ -23,5 +23,8 @@ mail($mailTo, "Bewerbung", $txt, $headers);
 
 header("Location: index.php?mailsend");
 
+echo '<script language="javascript">;';
+echo 'alert("Ihre Nachricht wurde versendet")';
+echo '</script>';
 
 }
